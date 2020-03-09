@@ -1,12 +1,12 @@
 import React from 'react'
 
-const UserLogin = () => {
+const Player = () => {
     return (
         <div>
-            <h1>User Login Present</h1>
+            <h1>Player Page Present</h1>
             
         </div>
     )
 }
 
-export default UserLogin
+export default Player
