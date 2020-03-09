@@ -1,5 +1,6 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :update, :destroy]
+  before_action :authorize_request, except: %i[index show]
 
   # GET /blog_posts
   def index
