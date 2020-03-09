@@ -1,0 +1,2 @@
+class NewYorkTeam < ApplicationRecord
+end
