@@ -1,10 +1,22 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-const TeamView = () => {
+
+const TeamView = (props) => {
     return (
         <div>
-            <h1>Team View Page Present</h1>
-            
+            {props.team.map((nyTeam, index) => (
+
+                <div
+                    key={index}>
+
+                    <div>{nyTeam.id}</div>
+                    <Link to={`/new_york_teams/${nyTeam.id}`} >{`${nyTeam.name} ${nyTeam.arena}`}</Link>
+                </div>
+
+            ))}
+
+
         </div>
     )
 }

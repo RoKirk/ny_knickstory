@@ -3,6 +3,7 @@ import PlayerListView from '../Views/PlayerListView'
 import NavigationBar from "../Shared/NavigationBar"
 // import BlogInterface from "../Shared/BlogInterface"
 import axios from "axios"
+import BlogInterface from '../Shared/BlogInterface'
 
 
 export class PlayerList extends Component {
@@ -41,6 +42,8 @@ export class PlayerList extends Component {
             <div>
                 <NavigationBar />
                 <PlayerListView players={this.state.players} />
+                <BlogInterface />
+
                 {/* <BlogInterface players={this.state.players}/> */}
             </div>
         )

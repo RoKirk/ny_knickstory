@@ -8,6 +8,7 @@ export const PlayerView = (props) => {
     const playerDetails = () =>
         (
             <div>
+                Photo and Details here
                 <h1>{`${player.first_name} ${player.last_name}`}</h1>
                 <h1>{`${player.first_name} ${player.last_name}`}</h1>
             </div>
