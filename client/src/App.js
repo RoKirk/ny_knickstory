@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import LandingPage from './components/Routes/LandingPage';
 import HomePage from "./components/Routes/HomePage"
 import UserLogin from "./components/Routes/UserLogin"
+import UserSignUp from "./components/Routes/UserSignUp"
 import Team from "./components/Routes/Team";
-import Players from "./components/Routes/Players"
+import PlayerList from "./components/Routes/PlayerList"
 import Player from "./components/Routes/Player"
 import PostEdit from "./components/Routes/PostEdit"
 import PhotoGallery from "./components/Routes/PhotoGallery"
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -25,15 +28,11 @@ class App extends Component {
     })
   }
 
-
-
   render() {
     return (
 
       <Router>
-
         <div className="App">
-
           <Switch>
 
             <Route
@@ -65,6 +64,15 @@ class App extends Component {
 
             <Route
               exact
+              path="/user_sign_up"
+              render={() => (
+                <UserSignUp
+                />
+              )}
+            />
+
+            <Route
+              exact
               path="/team"
               render={() => (
                 <Team
@@ -76,7 +84,7 @@ class App extends Component {
               exact
               path="/players"
               render={() => (
-                <Players
+                <PlayerList
                   
                 />
               )}
@@ -111,9 +119,7 @@ class App extends Component {
             />
 
           </Switch>
-
         </div>
-
       </Router>
 
     );

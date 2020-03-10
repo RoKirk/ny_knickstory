@@ -13,3 +13,6 @@ Player.create!(first_name: "Julius", last_name: "Randall", jersey_number: 30, he
 puts "#{Player.count} Player's successfully created!"
 puts "#{NewYorkTeam.count} NY Team's successfully created!"
 
+user1 = User.create(username: "a", email: "a@a.com", password: "password")
+
+post1 = BlogPost.create(post_text: "Yo yo yo yo!", user_id: 1)
