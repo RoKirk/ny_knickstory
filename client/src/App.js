@@ -85,17 +85,17 @@ class App extends Component {
               path="/players"
               render={() => (
                 <PlayerList
-                  
+
                 />
               )}
             />
 
             <Route
               exact
-              path="/player"
-              render={() => (
+              path="/players/:id"
+              render={(props) => (
                 <Player
-
+                  {...props}
                 />
               )}
             />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import BlogInterface from "../Shared/BlogInterface"
 
 const PlayerListView = (props) => {
@@ -8,10 +9,9 @@ const PlayerListView = (props) => {
 
                 <div
                     key={index}>
-                    <div>{player.first_name}</div>
-                    <div>{player.last_name}</div>
+                    
                     <div>{player.id}</div>
-                    <div>{player.first_name}</div>
+                    <Link to={`/players/${player.id}`} >{`${player.first_name} ${player.last_name}`}</Link>
                 </div>
                 
             ))}

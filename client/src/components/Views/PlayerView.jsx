@@ -1,10 +1,22 @@
 import React from 'react'
 
-export const PlayerView = () => {
+export const PlayerView = (props) => {
+    console.log(props)
+    const player = props.player
+
+
+    const playerDetails = () =>
+        (
+            <div>
+                <h1>{`${player.first_name} ${player.last_name}`}</h1>
+                <h1>{`${player.first_name} ${player.last_name}`}</h1>
+            </div>
+        )
+
     return (
         <div>
-            <h1>Player View Page Present</h1>
-            <img src="/Users/Ro/sei-blizzard/Unit_4/P4/ny_knickstory/client/public/rjBarrett.png" />            
+            {player && playerDetails()}
+
         </div>
     )
 }
