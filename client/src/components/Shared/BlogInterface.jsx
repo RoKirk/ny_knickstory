@@ -10,7 +10,7 @@ class BlogInterface extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: "",
+            posts: [],
             post: ""
 
         };
@@ -29,6 +29,11 @@ class BlogInterface extends Component {
             console.log(error)
         }
     };
+
+    componentDidMount() {
+        this.readAllPost()
+    }
+
 
     // createPost = async () => {
     //     try {
@@ -60,10 +65,16 @@ class BlogInterface extends Component {
 
                 <Jumbotron fluid>
                     <Container>
-                        {this.state.posts}
-                        {/* {players} */}
-                        {/* {props.players} */}
-                        <p>Comments get appended and printed here.</p>
+                        {this.state.posts.map((post, index) => (
+                            <div
+                                key={index}>
+
+                                <div>
+                                     - {post.post_text}
+                                </div>
+                            </div>
+
+                        ))}
                     </Container>
                 </Jumbotron>
 
@@ -85,7 +96,7 @@ class BlogInterface extends Component {
                 </>
 
             </div>
-            
+
         );
     }
 }
