@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch, withRouter } from "react-router-dom";
 // import axios from "axios";
 import LandingPage from './components/Routes/LandingPage';
 import HomePage from "./components/Routes/HomePage"
@@ -10,6 +10,8 @@ import PlayerList from "./components/Routes/PlayerList"
 import Player from "./components/Routes/Player"
 import PostEdit from "./components/Routes/PostEdit"
 import PhotoGallery from "./components/Routes/PhotoGallery"
+import { loginUser } from "./services/api-helper"
+
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
@@ -18,20 +20,37 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      authFormData: {
+        username: "",
+        email: "",
+        password: ""
+      }
+    };
   }
 
-  handleFormChange = (e) => {
-    const { name, value } = e.target;
+  handleLogin = async () => {
+    const userData = await loginUser(this.state.authFormData);
     this.setState({
-      [name]: value
+      currentUser: userData
     })
+    this.props.history.push("/homepage")
   }
+
+  authHandleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      authFormData: {
+        ...prevState.authFormData,
+        [name]: value
+      }
+    }));
+  }
+
 
   render() {
     return (
 
-      <Router>
         <div className="App">
           <Switch>
 
@@ -53,13 +72,11 @@ class App extends Component {
               )}
             />
 
-            <Route
-              exact
-              path="/user_login"
-              render={() => (
-                <UserLogin
-                />
-              )}
+            <Route exact path="/user_login" render={() => (
+              <UserLogin
+                handleLogin={this.handleLogin}
+                handleChange={this.authHandleChange}
+                formData={this.state.authFormData} />)}
             />
 
             <Route
@@ -120,10 +137,9 @@ class App extends Component {
 
           </Switch>
         </div>
-      </Router>
 
     );
   }
 }
 
-export default App;
+export default withRouter(App);

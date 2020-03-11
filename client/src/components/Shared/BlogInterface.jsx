@@ -9,24 +9,40 @@ import Button from 'react-bootstrap/Button'
 class BlogInterface extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
+            posts: "",
             post: ""
-         };
+
+        };
     }
 
-    createPost = async () => {
+    readAllPost = async () => {
         try {
-            let response = await axios.post("http://localhost:3000/blog_posts")
+            let response = await axios.get("http://localhost:3000/blog_posts")
             console.log(response)
             this.setState({
-                post: response.data,
-                postCreated: true
+                posts: response.data,
+                postsLoaded: true
             });
         }
         catch (error) {
             console.log(error)
         }
     };
+
+    // createPost = async () => {
+    //     try {
+    //         let response = await axios.post("http://localhost:3000/blog_posts")
+    //         console.log(response)
+    //         this.setState({
+    //             post: response.data,
+    //             postCreated: true
+    //         });
+    //     }
+    //     catch (error) {
+    //         console.log(error)
+    //     }
+    // };
 
     handleFormChange = (e) => {
         const { entry, value } = e.target;
@@ -38,14 +54,13 @@ class BlogInterface extends Component {
     }
 
 
-
-
     render() {
         return (
             <div>
 
                 <Jumbotron fluid>
                     <Container>
+                        {this.state.posts}
                         {/* {players} */}
                         {/* {props.players} */}
                         <p>Comments get appended and printed here.</p>
