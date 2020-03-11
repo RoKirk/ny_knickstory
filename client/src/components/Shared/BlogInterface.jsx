@@ -1,46 +1,79 @@
-import React from 'react'
+import React, { Component } from 'react'
+import axios from "axios"
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
-const BlogInterface = (props) => {
-    console.log(props)
-    // const players = props.players.map((player, index) => (
-    //     <div>
-    //         {player.first_name}
-    //     </div>
-    // ))
-    return (
-        <div>
+class BlogInterface extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+            post: ""
+         };
+    }
 
-            <Jumbotron fluid>
-                <Container>
-                    {/* {players} */}
-                    {/* {props.players} */}
+    createPost = async () => {
+        try {
+            let response = await axios.post("http://localhost:3000/blog_posts")
+            console.log(response)
+            this.setState({
+                post: response.data,
+                postCreated: true
+            });
+        }
+        catch (error) {
+            console.log(error)
+        }
+    };
 
-                    <p>Comments get appended and printed here.</p>
-                </Container>
-            </Jumbotron>
+    handleFormChange = (e) => {
+        const { entry, value } = e.target;
+        this.setState({
+            post:
+                { [entry]: value }
+        })
+        console.log(value)
+    }
+
+
+
+
+    render() {
+        return (
+            <div>
+
+                <Jumbotron fluid>
+                    <Container>
+                        {/* {players} */}
+                        {/* {props.players} */}
+                        <p>Comments get appended and printed here.</p>
+                    </Container>
+                </Jumbotron>
+
+                <>
+
+                    <InputGroup className="mb-3">
+                        <FormControl
+                            onChange={this.handleFormChange}
+                            entry="post_text"
+                            placeholder="Type Comments Here."
+                            aria-label="Post your thought's here"
+                            aria-describedby="basic-addon2"
+                        />
+                        <InputGroup.Append>
+                            <Button variant="outline-secondary">Create Post (Button)</Button>
+                        </InputGroup.Append>
+                    </InputGroup>
+
+                </>
+
+            </div>
             
-            <>
-
-                <InputGroup className="mb-3">
-                    <FormControl
-                        placeholder="Recipient's username"
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
-                    />
-                    <InputGroup.Append>
-                        <Button variant="outline-secondary">Button</Button>
-                    </InputGroup.Append>
-                </InputGroup>
-
-            </>
-
-        </div>
-    )
+        );
+    }
 }
 
-export default BlogInterface
+export default BlogInterface;
+
