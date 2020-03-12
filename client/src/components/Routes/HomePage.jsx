@@ -20,13 +20,9 @@ const HomePage = () => {
     //     // redirect to the new teacher 
     //     this.props.history.push('/players/' + player.id)
 
-
-
-
     return (
         <div>
             <NavigationBar />
-            <h1>Home Page Present</h1>
             <WelcomeMessage />
             <BlogInterface />  
         </div>

@@ -1,4 +1,5 @@
-import React, { Component, Link } from 'react'
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import axios from "axios"
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
@@ -70,7 +71,12 @@ class BlogInterface extends Component {
                                 key={index}>
 
                                 <div>
-                                    - {post.post_text}
+                                    <Link to={`/post_edit/${post.id}`}>Edit/Delete</Link>
+                                    <p>
+                                        - {post.post_text}
+                                    </p>
+
+
                                 </div>
                             </div>
 
@@ -79,6 +85,8 @@ class BlogInterface extends Component {
                 </Jumbotron>
 
                 <>
+
+                    {/* <Link to="/post_edit/:id">""</Link> */}
 
                     <InputGroup className="mb-3">
                         <FormControl
@@ -89,7 +97,7 @@ class BlogInterface extends Component {
                             aria-describedby="basic-addon2"
                         />
                         <InputGroup.Append>
-                            <Button onClick={this.newPost} variant="outline-secondary">Create Post (Button)</Button>
+                            <Button onClick={this.newPost} variant="outline-secondary">Create Post</Button>
                         </InputGroup.Append>
                     </InputGroup>
 

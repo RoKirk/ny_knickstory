@@ -9,8 +9,8 @@ const LandingPage = () => {
     return (
         <div className="landing-page">
 
-            <Link to="./user_login"><FaDribbble /></Link>
-            <Link to="./user_sign_up"><FaUserEdit /></Link>
+            <Link to="/user_login"><FaDribbble /></Link>
+            <Link to="/user_sign_up"><FaUserEdit /></Link>
 
 
             <h1 id="app-title">ny knickstory</h1>

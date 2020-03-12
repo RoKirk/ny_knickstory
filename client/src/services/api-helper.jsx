@@ -41,5 +41,13 @@ export const updatePost = async (data, post_id) => {
     return resp.data
 }
 
+export const destroyPost = async (postId) => {
+    const resp = await api.delete(`/blog_posts/${postId}`)
+    // console.log(this.props)
+    // this.props.history.push("/homepage")
+    console.log("Destroyed")
+
+    return resp.data
+}
 
 

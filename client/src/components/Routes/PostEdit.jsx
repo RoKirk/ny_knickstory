@@ -5,7 +5,7 @@ import FormControl from 'react-bootstrap/FormControl'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
-import { verifyUser, updatePost } from "../../services/api-helper"
+import { verifyUser, updatePost, destroyPost } from "../../services/api-helper"
 
 class PostEdit extends Component {
     constructor(props) {
@@ -49,11 +49,6 @@ class PostEdit extends Component {
         }
     };
 
-    destroyPost = async (postId) => {
-        const resp = await axios.delete(`/blog_posts/${postId}`)
-        return resp.data
-    }
-
     handleFormChange = (e) => {
         const { name, value } = e.target;
         let id = localStorage.getItem('id')
@@ -67,12 +62,16 @@ class PostEdit extends Component {
         console.log(value)
     }
 
+    async destroyPostAndBackToHomepage() {
+       await destroyPost(this.props.match.params.id)
+            this.props.history.push("/homepage")
+
+    }
+
 
     render() {
         return (
             <div>
-
-
 
                 <>
 
@@ -86,7 +85,9 @@ class PostEdit extends Component {
                             value={this.state.post_text && this.state.post_text.post_text}
                         />
                         <InputGroup.Append>
-                            <Button onClick={this.editPost} variant="outline-secondary">Create Post (Button)</Button>
+                            <Button onClick={() => { this.destroyPostAndBackToHomepage() }} variant="outline-secondary">Delete</Button>
+                            <Button onClick={this.editPost} variant="outline-secondary">Edit</Button>
+
                         </InputGroup.Append>
                     </InputGroup>
 
