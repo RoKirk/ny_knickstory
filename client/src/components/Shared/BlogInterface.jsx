@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Link } from 'react'
 import axios from "axios"
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
@@ -44,25 +44,6 @@ class BlogInterface extends Component {
     componentDidMount() {
         this.readAllPost()
     }
-
-
-
-
-
-
-    // createPost = async () => {
-    //     try {
-    //         let response = await axios.post("http://localhost:3000/blog_posts")
-    //         console.log(response)
-    //         this.setState({
-    //             post: response.data,
-    //             postCreated: true
-    //         });
-    //     }
-    //     catch (error) {
-    //         console.log(error)
-    //     }
-    // };
 
     handleFormChange = (e) => {
         const { name, value } = e.target;

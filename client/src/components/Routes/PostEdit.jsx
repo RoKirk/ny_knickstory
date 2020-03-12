@@ -49,22 +49,10 @@ class PostEdit extends Component {
         }
     };
 
-
-
-
-    // createPost = async () => {
-    //     try {
-    //         let response = await axios.post("http://localhost:3000/blog_posts")
-    //         console.log(response)
-    //         this.setState({
-    //             post: response.data,
-    //             postCreated: true
-    //         });
-    //     }
-    //     catch (error) {
-    //         console.log(error)
-    //     }
-    // };
+    destroyPost = async (postId) => {
+        const resp = await axios.delete(`/blog_posts/${postId}`)
+        return resp.data
+    }
 
     handleFormChange = (e) => {
         const { name, value } = e.target;
