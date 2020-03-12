@@ -11,6 +11,7 @@ export const loginUser = async (loginData) => {
     const resp = await api.post('/auth/login', loginData)
     console.log(resp)
     localStorage.setItem('authToken', resp.data.token);
+    localStorage.setItem('id', resp.data.user.id);
     api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
     return resp.data.user
 }
@@ -30,4 +31,13 @@ export const verifyUser = async () => {
     return false;
 }
 
+export const createPost = async (data) => {
+    const resp = await api.post('/blog_posts', { blog_post: data })
+    return resp.data
+}
+
+export const updatePost = async (data, post_id) => {
+    const resp = await api.put(`/blog_posts/${post_id}`, { blog_post: data })
+    return resp.data
+}
 

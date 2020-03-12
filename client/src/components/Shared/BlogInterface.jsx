@@ -5,15 +5,26 @@ import FormControl from 'react-bootstrap/FormControl'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import { createPost } from "../../services/api-helper"
 
 class BlogInterface extends Component {
     constructor(props) {
         super(props);
         this.state = {
             posts: [],
-            post: ""
+            blog_post: {
+                post_text: "",
+                user_id: ""
+            }
 
         };
+    }
+
+    newPost = async (e) => {
+        e.preventDefault();
+        console.log(this.state.post_text)
+        const post = await createPost(this.state.post_text);
+        this.readAllPost()
     }
 
     readAllPost = async () => {
@@ -35,6 +46,10 @@ class BlogInterface extends Component {
     }
 
 
+
+
+
+
     // createPost = async () => {
     //     try {
     //         let response = await axios.post("http://localhost:3000/blog_posts")
@@ -50,10 +65,14 @@ class BlogInterface extends Component {
     // };
 
     handleFormChange = (e) => {
-        const { entry, value } = e.target;
+        const { name, value } = e.target;
+        let id = localStorage.getItem('id')
+        console.log("id:" + id)
         this.setState({
-            post:
-                { [entry]: value }
+            post_text: {
+                user_id: id,
+                [name]: value
+            }
         })
         console.log(value)
     }
@@ -70,7 +89,7 @@ class BlogInterface extends Component {
                                 key={index}>
 
                                 <div>
-                                     - {post.post_text}
+                                    - {post.post_text}
                                 </div>
                             </div>
 
@@ -83,13 +102,13 @@ class BlogInterface extends Component {
                     <InputGroup className="mb-3">
                         <FormControl
                             onChange={this.handleFormChange}
-                            entry="post_text"
+                            name="post_text"
                             placeholder="Type Comments Here."
                             aria-label="Post your thought's here"
                             aria-describedby="basic-addon2"
                         />
                         <InputGroup.Append>
-                            <Button variant="outline-secondary">Create Post (Button)</Button>
+                            <Button onClick={this.newPost} variant="outline-secondary">Create Post (Button)</Button>
                         </InputGroup.Append>
                     </InputGroup>
 

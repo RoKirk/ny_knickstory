@@ -16,6 +16,7 @@ class BlogPostsController < ApplicationController
 
   # POST /blog_posts
   def create
+    p blog_post_params
     @blog_post = BlogPost.new(blog_post_params)
 
     if @blog_post.save
@@ -40,13 +41,14 @@ class BlogPostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog_post
-      @blog_post = BlogPost.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def blog_post_params
-      params.require(:blog_post).permit(:post_text, :user_id_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog_post
+    @blog_post = BlogPost.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def blog_post_params
+    params.require(:blog_post).permit(:post_text, :user_id)
+  end
 end
