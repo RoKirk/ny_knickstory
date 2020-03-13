@@ -43,13 +43,43 @@
   }
 }
 
+/* **** Welcome Page **** */
 #app-title {
-  /* font-family: 'Lobster', cursive; */
-  /* font-family: 'Monoton', cursive; */
-  /* font-family: 'Racing Sans One', cursive; */
-  /* font-family: 'Faster One', cursive; */
   font-family: 'Bungee Shade', cursive;
-  size: 50px;
+  font-size: 3em;
   color: orangered;
   margin: 0;
+}
+
+.login-signUp-icons {
+  /* color: orangered;
+  text-decoration: orangered; */
+}
+
+.welcome-page-links {
+    text-decoration-line: underline;
+    text-decoration-color: orangered;
+    font-size: 25px;
+}
+
+/* **** User Login/Signup Page **** */
+
+.login-signup-header {
+  color: blue;
+}
+
+.login-signup-page {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+
+  height: 750px;
+  padding: 0px;
+  border: 0px;
+  margin: 0px;
+  background-color: orangered;
+  color: blue;
+  font: outline;
+  font-weight: bold;
 }
