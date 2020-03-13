@@ -9,17 +9,23 @@ const LandingPage = () => {
     return (
         <div className="landing-page">
 
-            <span className="login-signUp-icons">
-                <Link to="/user_login"><FaDribbble /><span className="welcome-page-links">User Login</span></Link>
-            </span>
-            <span className="login-signUp-icons">
-                <Link to="/user_sign_up"><FaUserEdit /><span className="welcome-page-links">Sign Up</span></Link>
-            </span>
+            <div className="welcome-page-nav">
 
+                <span className="login-signUp-icons">
+                    <Link to="/user_login"><FaDribbble /><span className="welcome-page-links">User Login</span></Link>
+                </span>
+                <span className="login-signUp-icons">
+                    <Link to="/user_sign_up"><FaUserEdit /><span className="welcome-page-links">Sign Up</span></Link>
+                </span>
+
+            </div>
+
+            
             <h1 id="app-title">ny knickstory</h1>
             <Link to="/homepage"><span className="welcome-page-links">Enter Site</span></Link>
 
         </div>
+
     )
 }
 
