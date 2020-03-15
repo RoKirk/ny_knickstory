@@ -10,7 +10,7 @@ import PlayerList from "./components/Routes/PlayerList"
 import Player from "./components/Routes/Player"
 import PostEdit from "./components/Routes/PostEdit"
 import PhotoGallery from "./components/Routes/PhotoGallery"
-import { verifyUser, loginUser, createPost } from "./services/api-helper"
+import { verifyUser, loginUser, registerUser } from "./services/api-helper"
 
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -53,6 +53,15 @@ class App extends Component {
     }));
   }
 
+  handleRegister = async (e) => {
+    const currentUser = await registerUser(this.state.authFormData);
+    this.setState({
+      currentUser
+    });
+    this.props.history.push("/homepage")
+
+  }
+
 
   render() {
     return (
@@ -90,6 +99,9 @@ class App extends Component {
             path="/user_sign_up"
             render={() => (
               <UserSignUp
+                handleRegister={this.handleRegister}
+                handleChange={this.authHandleChange}
+                formData={this.state.authFormData}
               />
             )}
           />

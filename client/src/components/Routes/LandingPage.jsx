@@ -20,7 +20,7 @@ const LandingPage = () => {
 
             </div>
 
-            
+            <div></div>
             <h1 id="app-title">ny knickstory</h1>
             <Link to="/homepage"><span className="welcome-page-links">Enter Site</span></Link>
 
