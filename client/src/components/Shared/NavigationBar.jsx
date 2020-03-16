@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 
 const NavigationBar = () => {
     return (
+
         <div>
             <Nav justify variant="tabs" defaultActiveKey="/home">
                 <Nav.Item>
@@ -16,6 +17,7 @@ const NavigationBar = () => {
                 </Nav.Item>
             </Nav>
         </div>
+        
     )
 }
 

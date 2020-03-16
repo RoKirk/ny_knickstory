@@ -86,8 +86,6 @@ class BlogInterface extends Component {
 
                 <>
 
-                    {/* <Link to="/post_edit/:id">""</Link> */}
-
                     <InputGroup className="mb-3">
                         <FormControl
                             onChange={this.handleFormChange}

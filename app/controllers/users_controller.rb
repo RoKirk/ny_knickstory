@@ -25,17 +25,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # POST /teachers
-# def create
-#   @teacher = Teacher.new(teacher_params)
-#   if @teacher.save
-#     render json: @teacher, status: :created
-#   else
-#     render json: @teacher.errors, status: :unprocessable_entity
-#   end
-# end
-
-
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)

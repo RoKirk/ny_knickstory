@@ -16,11 +16,6 @@ export const loginUser = async (loginData) => {
     return resp.data.user
 }
 
-// export const registerUser = async (registerData) => {
-//     const resp = await api.post('/users/', { user: registerData })
-//     return resp.data
-// }
-
 export const registerUser = async (registerData) => {
     const resp = await api.post('/users/', { user: registerData })
     localStorage.setItem('authToken', resp.data.token);
@@ -50,8 +45,6 @@ export const updatePost = async (data, post_id) => {
 
 export const destroyPost = async (postId) => {
     const resp = await api.delete(`/blog_posts/${postId}`)
-    // console.log(this.props)
-    // this.props.history.push("/homepage")
     console.log("Destroyed")
 
     return resp.data

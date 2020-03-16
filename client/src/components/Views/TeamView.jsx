@@ -1,9 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
 
 const TeamView = (props) => {
     return (
+
         <div>
             {props.team.map((nyTeam, index) => (
 
@@ -15,8 +16,6 @@ const TeamView = (props) => {
                 </div>
 
             ))}
-
-
         </div>
     )
 }

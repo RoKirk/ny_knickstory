@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import axios from "axios"
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
-import Jumbotron from 'react-bootstrap/Jumbotron'
-import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import { verifyUser, updatePost, destroyPost } from "../../services/api-helper"
 
@@ -15,7 +13,6 @@ class PostEdit extends Component {
                 post_text: "",
                 user_id: ""
             }
-
         };
     }
 
@@ -27,11 +24,6 @@ class PostEdit extends Component {
 
         // REDIRECT BACK
         this.props.history.push("/homepage")
-    }
-
-    componentDidMount() {
-        this.readPost()
-        verifyUser()
     }
 
     readPost = async () => {
@@ -68,6 +60,10 @@ class PostEdit extends Component {
 
     }
 
+    componentDidMount() {
+        this.readPost()
+        verifyUser()
+    }
 
     render() {
         return (

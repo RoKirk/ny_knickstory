@@ -17,7 +17,6 @@ export const PlayerView = (props) => {
     return (
         <div>
             {player && playerDetails()}
-
         </div>
     )
 }

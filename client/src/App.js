@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link, Switch, withRouter } from "react-router-dom";
-// import axios from "axios";
+import { Route, Switch, withRouter } from "react-router-dom";
 import LandingPage from './components/Routes/LandingPage';
 import HomePage from "./components/Routes/HomePage"
 import UserLogin from "./components/Routes/UserLogin"
@@ -12,10 +11,8 @@ import PostEdit from "./components/Routes/PostEdit"
 import PhotoGallery from "./components/Routes/PhotoGallery"
 import { verifyUser, loginUser, registerUser } from "./services/api-helper"
 
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import BlogInterface from "./components/Shared/BlogInterface";
 
 
 class App extends Component {
@@ -59,7 +56,6 @@ class App extends Component {
       currentUser
     });
     this.props.history.push("/homepage")
-
   }
 
 
@@ -155,8 +151,6 @@ class App extends Component {
           />
 
         </Switch>
-
-        {/* <BlogInterface createPost={this.newPost}/> */}
       </div>
 
     );
