@@ -33,6 +33,8 @@ Allow Users to be able to view information on the New York Knicks and its Player
 |      Axios       | _Used to send asynchronous HTTP request to REST endpoints and perform CRUD operations._ |
 |      BCRYPT       | _Password hashing function._ |
 |      Rails       | _Server-side framework authored with the Ruby language._ |
+|      Bootstrap       | _Bootstrap is a free and open-source CSS framework ._ |
+
 
 <br>
 
@@ -92,7 +94,6 @@ Allow Users to be able to view information on the New York Knicks and its Player
 - DELETE `/blog_post/:id`
   	- Delete a post by id.
 
-
 <br>
 
 ***
@@ -105,15 +106,14 @@ Allow Users to be able to view information on the New York Knicks and its Player
 
 | Task                | Priority | Estimated Time | Actual Time |
 | ------------------- | :------: | :------------: | :---------: |
-| Build out Back-End    |    H     |     5 hrs      |    TBD    |
-| Build out Back-End    |    H     |     5 hrs      |    TBD    |
-| Create Create Seed data |    L     |     3 hrs      |     TBD     |
-| Build out components |    H     |     6 hrs      |     TBD     |
-| Create CRUD Actions (Front & Back End)  |    H     |     10 hrs      |     TBD     |
-| Implement User Auth |    H     |     4 hrs      |     TBD     |
-| Add Blog Interface    |    M     |     2 hrs      |    TBD    |
-| Stlye/ CSS/ Structure |    H     |     8 hrs      |     TBD     |
-| TOTAL               |          |     38 hrs      |     TBD     |
+| Build out Back-End    |    H     |     5 hrs      |    5 hrs    |
+| Create Create Seed data |    L     |     3 hrs      |     2 hrs     |
+| Build out components |    H     |     6 hrs      |     7 hrs     |
+| Create CRUD Actions (Front & Back End)  |    H     |     10 hrs      |     10 hrs     |
+| Implement User Auth |    H     |     4 hrs      |     3 hrs     |
+| Add Blog Interface    |    M     |     2 hrs      |    4 hrs    |
+| Stlye/ CSS/ Structure |    H     |     8 hrs      |     10 hrs     |
+| TOTAL               |          |     38 hrs      |     41 hrs     |
 
 <br>
 
@@ -151,13 +151,33 @@ Allow Users to be able to view information on the New York Knicks and its Player
 
 ## Project Change Log
 
-> This section should be expanded and revised as you work on your project.
+Due to time contraints, Photos, & Stats were temporarily ommited but all CRUD functionality, Auth, & Sign-up achieved.
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+<Container>
+                        {this.state.posts.map((post, index) => (
+                            <div
+                                key={index}>
+
+                                <div>
+                                    <Link to={`/post_edit/${post.id}`}>Edit/Delete</Link>
+                                    <p>
+                                        - {post.post_text}
+                                    </p>
+
+
+                                </div>
+                            </div>
+
+                        ))}
+</Container>
+
+Mapped throught the array of Posts and assigned it to post... then wrapped them in "Link" tags that route to a specific "id".
 
 ## Code Issues & Resolutions
 
 Looking forward; a little rusty with Routes and React, so I will have to be prepared to relearn as I go.
+
+- Connecting CRUD functionality to the front-end. I utilized "Postman", "Rails S", & the console to troubleshoot and fix. 
 ***
