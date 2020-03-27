@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from "axios"
+import { axios } from "axios"
 import TeamView from '../Views/TeamView'
 import NavigationBar from "../Shared/NavigationBar"
 import BlogInterface from "../Shared/BlogInterface"
