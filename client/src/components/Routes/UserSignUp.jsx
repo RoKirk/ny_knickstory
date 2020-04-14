@@ -1,12 +1,15 @@
-import React from 'react'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { FaUserEdit } from "react-icons/fa";
 
 
 const UserSignUp = (props) => {
     return (
         <div className="login-signup-page">
+
+            <Link className="back-links" to="/">Back</Link>
 
             <span className="login-signUp-icons">
                 <FaUserEdit /><span className="welcome-page-links">Sign Up</span>

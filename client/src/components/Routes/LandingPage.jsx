@@ -12,17 +12,20 @@ const LandingPage = () => {
             <div className="welcome-page-nav">
 
                 <span className="login-signUp-icons">
-                    <Link to="/user_login"><FaDribbble /><span className="welcome-page-links">User Login</span></Link>
+                    <Link to="/user_login"><FaDribbble /> <span className="welcome-page-links">User Login</span></Link>
                 </span>
                 <span className="login-signUp-icons">
-                    <Link to="/user_sign_up"><FaUserEdit /><span className="welcome-page-links">Sign Up</span></Link>
+                    <Link to="/user_sign_up"><FaUserEdit /> <span className="welcome-page-links">Sign Up</span></Link>
                 </span>
 
             </div>
 
-            <div></div>
-            <h1 id="app-title">ny knickstory</h1>
-            <Link to="/homepage"><span className="welcome-page-links">Enter Site</span></Link>
+            <div className="landing-page-title">
+
+                <h1 id="app-title">ny knickstory</h1>
+                <Link to="/homepage"><span className="welcome-page-links">Enter Site</span></Link>
+
+            </div>
 
         </div>
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import axios from "axios"
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
@@ -62,7 +64,8 @@ class BlogInterface extends Component {
 
     render() {
         return (
-            <div>
+            
+            <div className="blog-int">
 
                 <Jumbotron fluid>
                     <Container>
@@ -95,7 +98,7 @@ class BlogInterface extends Component {
                             aria-describedby="basic-addon2"
                         />
                         <InputGroup.Append>
-                            <Button onClick={this.newPost} variant="outline-secondary">Create Post</Button>
+                            <Button onClick={this.newPost} variant="outline-secondary">Post</Button>
                         </InputGroup.Append>
                     </InputGroup>
 

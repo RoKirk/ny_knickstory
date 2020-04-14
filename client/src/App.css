@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+text-align: center;
 }
 
 .App-logo {
@@ -38,17 +38,45 @@
 }
 
 /* **** Welcome Page **** */
+
 .landing-page {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  text-align: center;
+  animation: pulse 10s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: orangered;
+  }
+  100% {
     background-color: darkblue;
-    height: 100pc;
-    font-size: 40px;
+  }
+}
+
+.landing-page-title {
+  display: flex;
+  flex-direction: column;
+  padding: 70px 45px 315px;
+  height: 100%;
 }
 
 #app-title {
   font-family: 'Bungee Shade', cursive;
   font-size: 3em;
-  color: orangered;
   margin: 0;
+  animation: superman 5s infinite;
+}
+
+@keyframes superman {
+  0% {
+    color: darkblue;
+  }
+  100% {
+    color: orangered;
+  }
 }
 
 .welcome-page-links {
@@ -59,6 +87,13 @@
 
 /* **** User Login/Signup Page **** */
 
+.back-links {
+  color: darkblue;
+  text-decoration-line: underline;
+  text-decoration-color: darkblue;
+  font-size: 25px;
+}
+
 .login-signup-header {
   color: blue;
 }
@@ -66,23 +101,25 @@
 .login-signup-page {
   display:flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: space-around;
-
-  height: 750px;
-  padding: 0px;
-  border: 0px;
-  margin: 0px;
+  align-items: center;
+  align-content: center;
+  padding: 100px 200px;
+  height: 100%;
+  
+  text-align: center;
   background-color: orangered;
   color: blue;
-  font: outline;
   font-weight: bold;
 }
 
 .welcome-page-nav {
   display: flex;
   flex-direction: column;
-  float: right;
-
+  align-items: flex-end;
+  padding: 10px 20px 10px 0px;
 }
 
+.blog-int {
+  margin: 0 auto;
+  width: 750px;
+}
